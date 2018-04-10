@@ -45,5 +45,32 @@
 	</dependencies>
 	<build>
 		<finalName>simple-sso-server</finalName>
+
+		<plugins>
+
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+					<port>8080</port>
+					<path>/</path>
+					<uriEncoding>UTF-8</uriEncoding>
+					<finalName>${project.artifactId}</finalName>
+					<server>tomcat</server>
+					<systemProperties>
+						<java.net.preferIPv4Stack>true</java.net.preferIPv4Stack>
+						<!--
+                             <JAVA_OPTS>
+                                 -server -Xms1024m -Xmx4096m -XX:PermSize=128M -XX:MaxPermSize=2048 -Dfile.encoding=UTF-8
+                             </JAVA_OPTS>
+                         -->
+					</systemProperties>
+				</configuration>
+			</plugin>
+		</plugins>
 	</build>
+
+
+
 </project>
